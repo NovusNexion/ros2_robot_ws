@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot name="first_robot">
+    <!-- 机器人本体 base_link -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder length="0.12" radius="0.10" />
+            </geometry>
+            <material name="white">
+                <color rgb="1.0 1.0 1.0 0.5" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- IMU 部件 imu_link -->
+    <link name="imu_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.02 0.02 0.02" />
+            </geometry>
+            <material name="black">
+                <color rgb="0 0 0 0.5" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- 固定关节连接 base_link 和 imu_link -->
+    <joint name="imu_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="imu_link" />
+        <origin xyz="0 0 0.03" rpy="0 0 0" />
+    </joint>
+</robot>
