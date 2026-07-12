@@ -17,7 +17,6 @@
   - Launch 启动文件：`launch/display_robot.launch.py`
 - **作用**：通过 `robot_state_publisher` 和 `joint_state_publisher` 发布机器人模型及 TF 变换，并在 RViz2 中显示。
 
----
 
 ## ✅ 依赖项
 
@@ -27,7 +26,7 @@ sudo apt install ros-${ROS_DISTRO}-robot-state-publisher
 sudo apt install ros-${ROS_DISTRO}-joint-state-publisher
 sudo apt install ros-${ROS_DISTRO}-rviz2
 ```
----
+
 
 ## 🚀 编译与运行
 1. Ubuntu环境下 下载本工程
@@ -60,7 +59,7 @@ ros2 launch fishbot_description display_robot.launch.py
   - URDF 模型文件：`urdf/gazebo_robot.urdf`
   - Launch 启动文件：`launch/spawn_robot.launch.py`
 - **作用**：通过，并在 GAZEBO 中显示。
----
+
 ## ✅ 依赖项
 
 1. ROS 2 与 Gazebo 桥接集成
@@ -97,7 +96,7 @@ sudo apt install gz-harmonic
 which gz
 gz sim
 ```
----
+
 
 ## 🚀 gazebo_bot_description 功能包编译与运行
 1. 编译功能包
@@ -106,7 +105,7 @@ cd ~/ros2_robot_ws
 colcon build --packages-select gazebo_bot_description
 source install/setup.bash
 ```
-3. 在Gazebo仿真环境中显示机器人
+2. 在Gazebo仿真环境中显示机器人
 ```bash
 cd ~/ros2_robot_ws
 source install/setup.bash
