@@ -18,7 +18,6 @@
 ## ✅ 依赖项
 
 运行本功能包前，请确保已安装以下 ROS 2 软件包：
-## ✅ 依赖项
 ```bash
 sudo apt install ros-${ROS_DISTRO}-robot-state-publisher
 sudo apt install ros-${ROS_DISTRO}-joint-state-publisher
