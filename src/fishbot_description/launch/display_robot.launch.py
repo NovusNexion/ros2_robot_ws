@@ -1,5 +1,7 @@
 import launch
 import launch_ros
+from launch.substitutions import LaunchConfiguration, Command
+from launch.actions import DeclareLaunchArgument
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
@@ -8,7 +10,7 @@ def generate_launch_description():
     default_model_path = urdf_tutorial_path + '/urdf/first_robot.urdf'
 
     # 声明可修改的 model 参数
-    action_declare_arg_mode_path = launch.actions.DeclareLaunchArgument(
+    action_declare_arg_mode_path = DeclareLaunchArgument(
         name='model',
         default_value=str(default_model_path),
         description='URDF 的绝对路径'
@@ -16,9 +18,7 @@ def generate_launch_description():
 
     # 通过 cat 命令读取 URDF 文件内容
     robot_description = launch_ros.parameter_descriptions.ParameterValue(
-        launch.substitutions.Command(
-            ['cat ', launch.substitutions.launchConfiguration('model')]
-        ),
+        Command(['cat ', LaunchConfiguration('model')]),
         value_type=str
     )
 
