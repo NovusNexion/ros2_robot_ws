@@ -1,6 +1,10 @@
-# fishbot_description
+# ROS2 机器人定义
 
+1. RViz显示机器人
 一个基于 ROS 2 的机器人 URDF 描述功能包，用于可视化一个由圆柱体和立方体组成的简易机器人模型（base_link 和 imu_link）。
+
+2. Gazebo显示机器人
+一个基于 ROS 2 的机器人 URDF 描述功能包，用于可视化一个包括万向轮、底盘、立柱、双臂，以及激光雷达、摄像头、里程计的机器人模型。
 
 ---
 
@@ -25,11 +29,12 @@ sudo apt install ros-${ROS_DISTRO}-rviz2
 ```
 ---
 
-## 🚀 编译与运行
+## 🚀 fishbot_description 功能报编译与运行
 1. Ubuntu环境下 下载本工程
 ```bash
 cd ~
-git clone https://github.com/NovusNexion/ros2_robot_ws.git
+git clone git@github.com:NovusNexion/ros2_robot_ws.git
+#git clone https://github.com/NovusNexion/ros2_robot_ws.git
 cd ~/ros2_robot_ws/src
 ```
 2. 编译功能包
@@ -38,7 +43,25 @@ cd ~/ros2_robot_ws
 colcon build --packages-select fishbot_description
 source install/setup.bash
 ```
-3. 启动显示节点
+3. 在RViz显示机器人
 ```bash
+cd ~/ros2_robot_ws
+source install/setup.bash
 ros2 launch fishbot_description display_robot.launch.py
+```
+---
+
+## 🚀 gazebo_bot_description 功能报编译与运行
+1. 编译功能包
+```bash
+cd ~/ros2_robot_ws
+colcon build --packages-select gazebo_bot_description
+source install/setup.bash
+```
+3. 在Gazebo仿真环境中显示机器人
+```bash
+cd ~/ros2_robot_ws
+source install/setup.bash
+ros2 launch gazebo_bot_description spawn_robot.launch.py
+
 ```
