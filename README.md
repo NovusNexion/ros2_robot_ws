@@ -18,22 +18,28 @@
 ## ✅ 依赖项
 
 运行本功能包前，请确保已安装以下 ROS 2 软件包：
-
+## ✅ 依赖项
 ```bash
 sudo apt install ros-${ROS_DISTRO}-robot-state-publisher
 sudo apt install ros-${ROS_DISTRO}-joint-state-publisher
 sudo apt install ros-${ROS_DISTRO}-rviz2
+```
+---
 
-# 🚀 编译与运行
+## 🚀 编译与运行
 1. Ubuntu环境下 下载本工程
+```bash
 cd ~
 git clone https://github.com/NovusNexion/ros2_robot_ws.git
 cd ~/ros2_robot_ws/src
-
+```
 2. 编译功能包
+```bash
 cd ~/ros2_robot_ws
 colcon build --packages-select fishbot_description
 source install/setup.bash
-
+```
 3. 启动显示节点
+```bash
 ros2 launch fishbot_description display_robot.launch.py
+```
